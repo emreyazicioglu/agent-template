@@ -22,7 +22,7 @@
 > * **Design Overview:** A detailed textual description of the page layout, elements, and visual style.
 > * **Navigational Paths:** A list of all interactive elements (buttons, links) and their destinations.
 > * **Page Functionality:** Detailed list of actions the user can perform on this page.
-> * **2.2 Input Validations:** Define rules for every field. Specify which fields are mandatory (Zorunlu alanlar), data formats (e.g., Email regex), and character limits.
+> * **2.2 Input Validations:** Define rules for every field. Specify which fields are mandatory, data formats (e.g., Email regex), and character limits.
 > * **2.3 Loading & Error States:** Describe how the UI behaves while waiting for data (Loading) or when an API/System error occurs.
 > 
 > ## 3. Database Design

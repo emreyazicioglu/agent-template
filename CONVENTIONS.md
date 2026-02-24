@@ -76,7 +76,7 @@
 ## Testing
 - every new function/method needs a unit test.
 - test file naming: `test_{module}.py`.
-- test data goes in `tests/fixtures/` — never use production data.
+- test data goes in `src/tests/fixtures/` — never use production data.
 
 ## Git
 - commit prefixes: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`
@@ -94,7 +94,9 @@ project/
 ├── docs/
 │   ├── specs/             # feature specs and generated artifacts (one .md per feature)
 │   ├── SESSION_LOG.md     # agent session memory
-│   └── KNOWN_ISSUES.md   # resolved bugs, open debt
+│   ├── KNOWN_ISSUES.md   # resolved bugs, open debt
+│   ├── todo.md            # task planning and progress tracking
+│   └── lessons.md         # agent process lessons and self-corrections
 ├── software-artifact-generator/  # prompt templates for generating project artifacts
 ├── src/ or app/           # source code (project-dependent)
 │   ├── tests/             # test suite
