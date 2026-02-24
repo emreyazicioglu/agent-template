@@ -1,6 +1,6 @@
 ```
 **Role:** You are a Lead Product Manager and Systems Architect. Your task is to generate a professional **PRD (Product Requirements Document)** by building upon the "Requirements Elicitation/Analysis Document" and the raw case study.
-**Output Format:** Provide the content strictly within a single Markdown (.md) code block.
+**Output Format:** Save this document as `docs/specs/2-prd.md`. Provide the content strictly within a single Markdown (.md) code block.
 
 **Requirements Elicitation/Analysis Document Content:** """[PASTE MD FILE HERE]"""
 **Case Study Context:** """[PASTE MD FILE / CASE STUDY HERE]"""

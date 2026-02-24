@@ -162,6 +162,8 @@ For high-DPI screens, implement 0.5px borders using pseudo-elements:
 
 > **AI AGENT RULE:** Use Geist Sans for UI elements, Geist Mono for code and data values. Never use system fonts.
 
+> **NOTE:** Geist Sans and Geist Mono are Vercel/Next.js ecosystem fonts. If your tech stack does not include Next.js, substitute with equivalent sans-serif and monospace fonts (e.g., Inter, Roboto for sans; Fira Code, JetBrains Mono for mono).
+
 ### 4.1. Font Family Setup
 
 ```css
@@ -528,12 +530,14 @@ For content like "Recent Projects", use horizontal scrolling on mobile:
 
 ## 10. Technical Stack Constraints
 
+> **NOTE:** The specifications below are designed for Next.js projects. If your tech stack does not include Next.js, adapt the framework-specific items (Lucide React, `next/image`, Server/Client Components) to your equivalent stack.
+
 | Requirement       | Specification                                |
 | ----------------- | -------------------------------------------- |
 | Framework         | Next.js (App Router)                         |
-| Styling           | CSS Modules + Tailwind for layout utilities  |
-| Icons             | Lucide React (stroke-width: 1.5)             |
-| Images            | `next/image` with `placeholder="blur"`   |
+| Styling           | CSS Modules (`.module.css`) — class-based selectors only, no global CSS unless explicitly required |
+| Icons             | Lucide React (stroke-width: 1.5) — substitute if not using Next.js |
+| Images            | `next/image` with `placeholder="blur"` — substitute if not using Next.js |
 | Server Components | Use for Bento Grid shell (data fetching)     |
 | Client Components | Use for interactive tiles (`"use client"`) |
 

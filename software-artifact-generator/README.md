@@ -1,32 +1,40 @@
-This folder is created in to f**acilitate the creation of software artifacts**, here is the intended use:
+This folder facilitates the creation of software artifacts. Here is the intended use:
 
-1. When you're starting a project from scratch you need LLMs and coding agents by your side.
+1. When starting a project from scratch you need LLMs and coding agents by your side.
 
-   * These agents have to know about the context and the project you are working with. Therefore they need static files that will guide them through coding by yourside as your project's personal assistant.
-   * In order for agents to work better and fully understand the project that you're working on, they need artifacts related to your project. There artifacts include:
+   * These agents need context about your project. They need static files to guide them through coding as your project's personal assistant.
+   * The artifacts that agents need include:
      * Requirements Elicitation/Analysis
      * Project Requirements Document (PRD)
      * Detailed Analysis Report
      * Implementation/Development Document
      * Detailed Roadmap (for execution)
-2. These artifacts are meant to be generated in a sequence given above. Therefore we should start with creating Requirements Elicitation document.
 
-   * In order to start with this document you have to feed the LLM with all the context that you currently have.
-   * If you're planning to start working on a project, you probably have a goal, a description of the product, your customers... and so on. Literally we have to feed all the information that we have about the business and the software that we're planning to build.
-3. You'll feed all this data in the following placeholder for the first prompt:
+2. These artifacts are generated sequentially in the order above. Start with creating the Requirements Elicitation document.
+
+   * Feed the LLM with all the context you currently have: your goal, product description, customers, and any other relevant business and software information.
+
+3. Feed all this data in the following placeholder for the first prompt:
 
    * Case Study Input: [PASTE CASE STUDY TEXT OR DATA HERE]
-4. That's all you need for this workflow to start, however for the quality of your software to be great. The first prompt is very important. So take your time, clearly explain what you're looking for in this software, what you have written as data and paste it in the placeholder part.
-5. Then all you need is to execute the rest of the prompts one by one while giving the previous generated .md files (artifacts) as the context, just drag and drop those .md files created and then let the prompt execute.
-6. If all goes well, you'll have 5 decent artifacts before you even begin to start coding, but you'll have a perfectly designed context for agent to execute with. Which will cut of all the halucinations that would possible occur along the way.
-7. All you have to do at the end is to copy and paste the last prompt called: "LAST EXECUTION PROMPT" while giving all the generated .md documents as the context. Then the agent will plan according to the artifacts and start building the application from scratch.
 
-   * It's advised to use opus 4.6 or the most intelligent agent that the world currently has while running the last execution prompt.
+4. The first prompt is critical for output quality. Take your time, clearly explain what you're looking for in this software.
 
-**Important Note 1:** Keep in mind that the prompts are designed specificly for next.js projects, therefore if your current tech stack doesn't include Next.js, you have to adjust the prompts accordingly (keeping the content same but tailored for another type of tech stack)
+5. Execute the remaining prompts one by one, giving the previously generated `.md` files as context. Drag and drop those `.md` files and let the prompt execute.
 
-**Important Note 2:** The "design.md" file within this folder is for the design choice called BentoUI, which is a minimal but a very good looking design that is currently used in modern UIs such as gemini's, chatgpt's etc. It's one of the best designs out there, but in case you're planning to use another type of design, simply delete this document before you execute this workflow or make sure it's not used in context.
+6. All generated artifacts are saved to `docs/specs/` with the following naming convention:
+   * `docs/specs/1-requirements.md`
+   * `docs/specs/2-prd.md`
+   * `docs/specs/3-detailed-analysis.md`
+   * `docs/specs/4-implementation.md`
+   * `docs/specs/5-roadmap.md`
 
-**Important Note 3:** You are advised to take a good look at the content of the prompts and understand them deeply before running any. If you see any conflict of interest in those prompts, simply delete or adjust according to your needs. DON'T JUST BLINDLY EXECUTE THEM.
+7. Once all 5 artifacts are generated, copy the last prompt ("LAST EXECUTION PROMPT") and provide all the generated `.md` documents from `docs/specs/` as context. The agent will plan and build the application from scratch.
 
-ENJOY!
+   * It's advised to use the most intelligent agent available while running the last execution prompt.
+
+**Important Note 1:** The prompts are designed specifically for Next.js projects. If your current tech stack doesn't include Next.js, adjust the prompts accordingly (keeping the content same but tailored for another type of tech stack).
+
+**Important Note 2:** The "design.md" file within this folder is for the BentoUI design, a minimal but modern design used in UIs such as Gemini's, ChatGPT's, etc. If you're planning to use another design, delete this document before executing this workflow or make sure it's not used in context.
+
+**Important Note 3:** Review the content of the prompts and understand them deeply before running any. If you see any conflict of interest, adjust according to your needs.

@@ -2,7 +2,7 @@
 > **Role:** You are a Senior Software Architect and Full-Stack Lead. Your task is to generate a comprehensive **Detailed Analysis Report** based on the provided PRD. This document must be granular enough to serve as a direct blueprint for coding and testing.
 
 > **Input Document:** """[PASTE PRD DOCUMENT HERE]"""
-> **Output Format:** Provide the content strictly in a single Markdown (.md) code block.
+> **Output Format:** Save this document as `docs/specs/3-detailed-analysis.md`. Provide the content strictly in a single Markdown (.md) code block.
 
 > **Document Structure & Requirements:**
 > # Detailed Analysis Report

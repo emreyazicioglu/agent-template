@@ -92,17 +92,19 @@ project/
 ├── CONVENTIONS.md         # this file
 ├── README.md
 ├── docs/
-│   ├── specs/             # feature specs (one .md per feature)
+│   ├── specs/             # feature specs and generated artifacts (one .md per feature)
 │   ├── SESSION_LOG.md     # agent session memory
 │   └── KNOWN_ISSUES.md   # resolved bugs, open debt
+├── software-artifact-generator/  # prompt templates for generating project artifacts
 ├── src/ or app/           # source code (project-dependent)
-├── tests/                 # test suite
-│   └── fixtures/          # synthetic test data
-├── utils/                 # shared helpers (only when needed)
-├── config/                # config files
-├── scripts/               # tooling, automation
+│   ├── tests/             # test suite
+│   │   └── fixtures/      # synthetic test data
+│   ├── utils/             # shared helpers (only when needed)
+│   ├── config/            # config files
+│   └── scripts/           # tooling, automation
 └── data/                  # runtime data (gitignored)
 ```
 
 New feature specs go in `docs/specs/{FEATURE_NAME}.md`.
+Generated software artifacts (requirements, PRD, analysis, implementation, roadmap) also go in `docs/specs/`.
 

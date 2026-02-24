@@ -10,11 +10,11 @@
 > * **Framework:** Next.js (App Router).
 > * **ORM:** **Prisma**. The AI must decide on the specific database type (PostgreSQL, MySQL, etc.) based on the Case Study's needs.
 > * **State Management:** Use **React Context** for global or complex state to avoid deep prop drilling when necessary.
-> * **Styling:** **NO TAILWIND.** Use CSS Modules (`.module.css`) located within the component folders.
+> * **Styling:** **NO TAILWIND.** Use CSS Modules (`.module.css`) co-located within each component folder. All styles must use `.class` selectors — no global CSS unless explicitly required.
 > * **Logic Pattern:** All business logic must reside in `src/services/`.
 > * **Data Fetching:** Fetch at the Server Component level where possible; use Context for client-side state sharing.
 
-> **Output Format:** Provide the content strictly in a single Markdown (.md) code block.
+> **Output Format:** Save this document as `docs/specs/4-implementation.md`. Provide the content strictly in a single Markdown (.md) code block.
 
 > **Document Structure:**
 > # Implementation/Development Document
@@ -37,65 +37,75 @@
 > 
 > ## 4. Testing Toolkit
 > 
-> * **Unit Testing:** Define Jest/React Testing Library setup for Services and Contexts.
+> * **Unit Testing:** Define Jest/React Testing Library setup for Services and Contexts. Tests go in `src/tests/`.
 > * **Manual Testing:** Provide a standardized `CURL` command set for testing APIs and Actions.
 > 
 > ## 5. Repository Folder Structure
 > 
-> * Generate a visual directory tree, the following one is an example that you can get inspired from:
-> ├── docs/                      # 💎 Sizin 5 Önemli Dokümanınız
-> │   ├── 1-requirements.md      # Gereksinim analizi
-> │   ├── 2-prd.md               # Ürün gereksinim belgesi
-> │   ├── 3-detailed-analysis.md # Senaryolar, UI Akışı, DB Tasarımı
-> │   ├── 4-implementation.md    # Teknik mimari ve kalite kapıları
-> │   └── 5-roadmap.md           # Yol haritası ve subtaskler
+> * Generate a visual directory tree. The following is an example to use as reference:
+> ├── docs/                      # generated project artifacts
+> │   ├── specs/
+> │   │   ├── 1-requirements.md  # requirements elicitation/analysis
+> │   │   ├── 2-prd.md           # product requirements document
+> │   │   ├── 3-detailed-analysis.md # scenarios, UI flow, DB design
+> │   │   ├── 4-implementation.md    # technical architecture and quality gates
+> │   │   └── 5-roadmap.md           # execution roadmap and subtasks
+> │   ├── SESSION_LOG.md         # agent session memory (append after each session)
+> │   └── KNOWN_ISSUES.md        # resolved bugs and open technical debt
 > │
-> ├── public/                    # Statik varlıklar (Resimler, SVG, Favicon)
+> ├── public/                    # static assets (images, SVG, favicon)
 > │
 > ├── src/
-> │   ├── app/                   # 🚀 NEXT.JS APP ROUTER (Routing & API)
-> │   │   ├── (auth)/            # Gruplanmış rotalar (Login/Register)
-> │   │   ├── (dashboard)/       # Gruplanmış rotalar (Admin paneli)
-> │   │   ├── api/               # REST API Endpoints (Route Handlers)
+> │   ├── app/                   # next.js app router (routing and API)
+> │   │   ├── (auth)/            # grouped routes (login/register)
+> │   │   ├── (dashboard)/       # grouped routes (admin panel)
+> │   │   ├── api/               # REST API endpoints (route handlers)
 > │   │   ├── ...
-> │   │   ├── layout.tsx         # Global layout & Providers sarmalayıcı
-> │   │   └── page.tsx           # Ana sayfa (Server Component)
+> │   │   ├── layout.tsx         # global layout and providers wrapper
+> │   │   └── page.tsx           # home page (server component)
 > │   │
-> │   ├── components/            # 🧱 UI BİLEŞENLERİ
-> │   │   ├── common/            # Navbar, Footer, Sidebar gibi her yerde olanlar
-> │   │   ├── ui/                # Button, Input, Modal (Atomik bileşenler)
-> │   │   └── features/          # Sayfaya özel karmaşık bileşenler (Örn: UserList)
+> │   ├── components/            # UI components
+> │   │   ├── common/            # navbar, footer, sidebar — shared across pages
+> │   │   ├── ui/                # button, input, modal (atomic components)
+> │   │   └── features/          # page-specific complex components (e.g., UserList)
 > │   │
-> │   ├── services/              # 🧠 BUSINESS LOGIC & DB (Arka Ofis)
-> │   │   ├── actions.ts         # Next.js Server Actions ("use server")
-> │   │   ├── db.ts              # Database Client (Prisma/Drizzle)
-> │   │   ├── userService.ts     # ÖRNEK: Kullanıcı işlemlerini yürüten saf fonksiyonlar
-> │   │   └── authService.ts     # ÖRNEK: Yetkilendirme mantığı
+> │   ├── services/              # business logic and DB layer
+> │   │   ├── actions.ts         # next.js server actions ("use server")
+> │   │   ├── db.ts              # database client (prisma)
+> │   │   ├── userService.ts     # example: user operation functions
+> │   │   └── authService.ts     # example: authentication logic
 > │   │
-> │   ├── hooks/                 # 🎣 CUSTOM HOOKS (Client-side logic)
-> │   │   ├── useAuth.ts         # ÖRNEK
-> │   │   └── useFetch.ts.       # ÖRNEK
+> │   ├── hooks/                 # custom hooks (client-side logic)
+> │   │   ├── useAuth.ts         # example
+> │   │   └── useFetch.ts        # example
 > │   │
-> │   ├── providers/             # 📡 CONTEXT PROVIDERS (Broadcast layer)
-> │   │   ├── AuthProvider.tsx   # ÖRNEK
+> │   ├── providers/             # context providers (broadcast layer)
+> │   │   └── AuthProvider.tsx   # example
 > │   │
-> │   ├── constants/             # 🏷️ "ANTI-MAGIC" STRINGS (Sabitler)
-> │   │   ├── routes.ts          # ROUTES.DASHBOARD gibi tanımlar
-> │   │   └── config.ts          # API_BASE_URL vb.
+> │   ├── constants/             # anti-magic strings (constants)
+> │   │   ├── routes.ts          # e.g., ROUTES.DASHBOARD
+> │   │   └── config.ts          # e.g., API_BASE_URL
 > │   │
-> │   ├── utils/                 # 🛠️ HELPERS (Saf fonksiyonlar)
-> │   │   ├── formatters.ts      # Tarih, para birimi formatlama
-> │   │   └── validations.ts     # Zod/Joi şemaları
+> │   ├── utils/                 # shared helper functions
+> │   │   ├── formatters.ts      # date, currency formatting
+> │   │   └── validations.ts     # zod/joi schemas
 > │   │
-> │   └── styles/                # 🎨 GLOBAL STYLING
-> │       ├── globals.css        # Reset & CSS Variables
+> │   ├── tests/                 # test suite
+> │   │   └── fixtures/          # synthetic test data
+> │   │
+> │   ├── config/                # config files
+> │   │
+> │   ├── scripts/               # tooling, automation
+> │   │
+> │   └── styles/                # global styling (only when explicitly needed)
+> │       └── globals.css        # reset and CSS variables
 > │
-> ├── .env.local                 # Hassas veriler (Git'e eklenmez)
-> ├── .env.example               # Örnek olarak doldurulabilecek hassas veriler (Git'e eklenmez).
-> ├── next.config.js             # Next.js konfigürasyonu
-> ├── package.json               # Bağımlılıklar ve scriptler
-> ├── .gitignore                 # NEXT JS Konfigürasyonunda gite gitmesini istemediğimiz şeyler
-> └── tsconfig.json              # TypeScript ayarları
+> ├── .env.local                 # secrets (not committed to git)
+> ├── .env.example               # example env template (committed)
+> ├── next.config.js             # next.js configuration
+> ├── package.json               # dependencies and scripts
+> ├── .gitignore                 # files excluded from git
+> └── tsconfig.json              # typescript settings
 > 
 > **Tone:** Highly technical, prescriptive, and optimized for professional Next.js development.
 ```

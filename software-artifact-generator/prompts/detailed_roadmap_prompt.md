@@ -7,7 +7,7 @@
 > 3. **Implementation/Development Document:** (The technical architecture)
 > 4. **Next.js Best Practices Doc:** (The framework rules)
 
-> **Output Format:** Provide the content strictly in a single Markdown (.md) code block.
+> **Output Format:** Save this document as `docs/specs/5-roadmap.md`. Provide the content strictly in a single Markdown (.md) code block.
 
 > **Document Structure & Requirements:**
 > # Detailed Roadmap
@@ -36,7 +36,7 @@
 > ## 4. AI Governance & Prompt Engineering Ruleset
 > 
 > * **Architectural Guardrails:** Enforce the "Service Layer Only" rule (No business logic in `route.js` or Actions).
-> * **Styling Strictness:** Enforce "No Tailwind." Mandate CSS Modules with `camelCase` naming.
+> * **Styling Strictness:** Enforce "No Tailwind." Mandate CSS Modules (`.module.css`) with `.class` selectors only — no global CSS unless explicitly required.
 > * **No Placeholders Policy:** Explicitly forbid `// TODO` or partial logic. All functions must be end-to-end.
 > * **Error Handling Policy:** Standardize `try-catch` blocks and `NextResponse` formats for all APIs.
 > 
